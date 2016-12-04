@@ -1,0 +1,10 @@
+*.suo
+.vs/
+bin/
+obj/
+*.VC.db
+*.opendb
+*.sdf
+*.opensdf
+*.o
+all_tests.out

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="lib">
+      <UniqueIdentifier>{c6b37f07-2c76-4b5e-b116-68aa4b48f3b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\cl">
+      <UniqueIdentifier>{526a5252-4655-4fea-b85e-0b5d62125038}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\cl\optional">
+      <UniqueIdentifier>{fad15292-d6b7-48fe-a432-79afec9ff2df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tests">
+      <UniqueIdentifier>{12de31c2-16d1-4548-b79b-a9f5c46a49cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tests\cl">
+      <UniqueIdentifier>{7165223b-4b04-47d8-939f-bfb2b3edf064}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tests\cl\optional">
+      <UniqueIdentifier>{2d8de56a-6e4e-43cd-8f22-3f8613f8ffa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tests\coveo">
+      <UniqueIdentifier>{488293a6-1209-44cf-b481-2b9c4f3a5a49}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\lib\cl\optional.h">
+      <Filter>lib\cl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\cl\optional\optional.h">
+      <Filter>lib\cl\optional</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tests\cl\optional\all_tests.h">
+      <Filter>tests\cl\optional</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tests\cl\optional\optional_tests.h">
+      <Filter>tests\cl\optional</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tests\coveo\test_framework.h">
+      <Filter>tests\coveo</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\tests\tests_main.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tests\cl\optional\all_tests.cpp">
+      <Filter>tests\cl\optional</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tests\cl\optional\optional_tests.cpp">
+      <Filter>tests\cl\optional</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
