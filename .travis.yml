@@ -2,12 +2,14 @@ language: cpp
 matrix:
   include:
   - compiler: gcc4
-    sudo: required
+    dist: trusty
+    sudo: false
     env:
     - COMPILER=g++
     - STD=c++11
   - compiler: clang34
-    sudo: required
+    dist: trusty
+    sudo: false
     env:
     - COMPILER=clang++
     - STD=c++11
