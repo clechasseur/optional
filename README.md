@@ -1,4 +1,4 @@
-# `cl::optional` [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/clechasseur/optional/master/LICENSE)
+# `cl::optional` [![Build Status](https://travis-ci.org/clechasseur/optional.svg?branch=master)](https://travis-ci.org/clechasseur/optional) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/clechasseur/optional/master/LICENSE)
 Implementation of `std::optional` from the C++17 specification, but for C++11 compilers. For API reference, see:
 http://en.cppreference.com/w/cpp/utility/optional
 
