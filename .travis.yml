@@ -7,7 +7,7 @@ matrix:
     env:
     - COMPILER=g++
     - STD=c++11
-  - compiler: clang34
+  - compiler: clang35
     dist: trusty
     sudo: false
     env:
