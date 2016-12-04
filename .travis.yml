@@ -1,0 +1,38 @@
+language: cpp
+matrix:
+  include:
+  - compiler: gcc4
+    sudo: required
+    env:
+    - COMPILER=g++
+    - STD=c++11
+  - compiler: clang34
+    sudo: required
+    env:
+    - COMPILER=clang++
+    - STD=c++11
+  - compiler: gcc5
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        packages:
+        - g++-5
+    env:
+    - COMPILER=g++-5
+    - STD=c++1z
+  - compiler: clang38
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        - llvm-toolchain-precise-3.8
+        packages:
+        - clang-3.8
+    env:
+    - COMPILER=clang++-3.8
+    - STD=c++1z
+script:
+- $COMPILER --version
+- make CXX=$COMPILER STD=$STD
+- ./all_tests.out
