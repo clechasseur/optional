@@ -111,12 +111,14 @@ void optional_tests()
         COVEO_ASSERT(*o2 == "Life");
         COVEO_ASSERT(o1.has_value()); // Moved optional still has a (moved) value
     }
+#if _CL_OPT_TEMPL_FUNC_DEF_PARAMS
     {
         cl::optional<std::string> o;
         o = std::string("Life");
         COVEO_ASSERT(o.has_value());
         COVEO_ASSERT(*o == "Life");
     }
+#endif
     {
         cl::optional<std::string> o(std::string("Life"));
         std::string s1, s2;

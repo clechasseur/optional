@@ -18,6 +18,7 @@
 #   if _MSC_VER >= 1800 // Visual Studio 2013
 #       define CL_OPTIONAL_VARIADIC
 #       define CL_OPTIONAL_EXPLICIT_OP_BOOL
+#       define CL_OPTIONAL_TEMPLATE_FUNCS_DEFAULT_PARAMS
 #   endif
 #   if _MSC_VER >= 1900 // Visual Studio 2015
 #       define CL_OPTIONAL_NOEXCEPT
@@ -106,6 +107,14 @@
 #   define _CL_OPT_OP_EXPLICIT  explicit
 #else
 #   define _CL_OPT_OP_EXPLICIT
+#endif
+
+// Define CL_OPTIONAL_TEMPLATE_FUNCS_DEFAULT_PARAMS to get template methods
+// with default template params, like assignment operator from value
+#ifdef CL_OPTIONAL_TEMPLATE_FUNCS_DEFAULT_PARAMS
+#   define _CL_OPT_TEMPL_FUNC_DEF_PARAMS    1
+#else
+#   define _CL_OPT_TEMPL_FUNC_DEF_PARAMS    0
 #endif
 
 
@@ -300,9 +309,11 @@ public:
         return *this;
     }
 
+#if _CL_OPT_TEMPL_FUNC_DEF_PARAMS
     // Assignment from a value
-    template<typename U>
-    optional& operator=(typename std::enable_if<std::is_same<typename std::decay<U>::type, T>::value, U>::type&& val)
+    template<typename U,
+             typename = std::enable_if_t<std::is_same<std::decay_t<U>, T>::value, void>>
+    optional& operator=(U&& val)
             _CL_OPT_NOEXCEPTEX(std::is_nothrow_constructible<T, U>::value &&
                                std::is_nothrow_assignable<T, U>::value)
     {
@@ -316,6 +327,7 @@ public:
         }
         return *this;
     }
+#endif // _CL_OPT_TEMPL_FUNC_DEF_PARAMS
 
     // Unchecked operators that access the value
     _CL_OPT_CONSTEXPR const T* operator->() const {
