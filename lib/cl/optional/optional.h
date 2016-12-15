@@ -47,6 +47,9 @@
 #   if __has_feature(cxx_explicit_conversions)
 #       define CL_OPTIONAL_EXPLICIT_OP_BOOL
 #   endif
+#   if __has_feature(cxx_default_function_template_args)
+#       define CL_OPTIONAL_TEMPLATE_FUNCS_DEFAULT_PARAMS
+#   endif
 #elif defined(__GNUG__)
 #   if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 8)
 #       define CL_OPTIONAL_NOEXCEPT
@@ -54,6 +57,7 @@
 #       define CL_OPTIONAL_VARIADIC
 #       define CL_OPTIONAL_MEMBERS_REF_QUALIFIERS
 #       define CL_OPTIONAL_EXPLICIT_OP_BOOL
+#       define CL_OPTIONAL_TEMPLATE_FUNCS_DEFAULT_PARAMS
 #   endif
 #   if __GNUC__ >= 5
 #       define CL_OPTIONAL_CONSTEXPR
@@ -312,7 +316,7 @@ public:
 #if _CL_OPT_TEMPL_FUNC_DEF_PARAMS
     // Assignment from a value
     template<typename U,
-             typename = std::enable_if_t<std::is_same<std::decay_t<U>, T>::value, void>>
+             typename = typename std::enable_if<std::is_same<typename std::decay<U>::type, T>::value, void>::type>
     optional& operator=(U&& val)
             _CL_OPT_NOEXCEPTEX(std::is_nothrow_constructible<T, U>::value &&
                                std::is_nothrow_assignable<T, U>::value)
