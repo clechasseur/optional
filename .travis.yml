@@ -1,19 +1,21 @@
 language: cpp
 matrix:
   include:
-  - compiler: gcc4
+  - compiler: gcc48
     dist: trusty
     sudo: false
     env:
     - COMPILER=g++
     - STD=c++11
-  - compiler: clang35
+  - compiler: gcc49
     dist: trusty
     sudo: false
     env:
-    - COMPILER=clang++
-    - STD=c++11
+    - COMPILER=g++4.9
+    - STD=c++1y
   - compiler: gcc5
+    dist: trusty
+    sudo: false
     addons:
       apt:
         sources:
@@ -23,16 +25,98 @@ matrix:
     env:
     - COMPILER=g++-5
     - STD=c++1z
-  - compiler: clang38
+  - compiler: gcc6
+    dist: trusty
+    sudo: false
     addons:
       apt:
         sources:
         - ubuntu-toolchain-r-test
-        - llvm-toolchain-precise-3.8
+        packages:
+        - g++-6
+    env:
+    - COMPILER=g++-6
+    - STD=c++1z
+  - compiler: clang35
+    dist: trusty
+    sudo: false
+    env:
+    - COMPILER=clang++
+    - STD=c++11
+  - compiler: clang36
+    dist: trusty
+    sudo: false
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        - llvm-toolchain-trusty-3.6
+        packages:
+        - clang-3.6
+    env:
+    - COMPILER=clang++-3.6
+    - STD=c++11
+  - compiler: clang37
+    dist: trusty
+    sudo: false
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        - llvm-toolchain-trusty-3.7
+        packages:
+        - clang-3.7
+    env:
+    - COMPILER=clang++-3.7
+    - STD=c++1y
+  - compiler: clang38
+    dist: trusty
+    sudo: false
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        - llvm-toolchain-trusty-3.8
         packages:
         - clang-3.8
     env:
     - COMPILER=clang++-3.8
+    - STD=c++1z
+  - compiler: clang39
+    dist: trusty
+    sudo: false
+    addons:
+      apt:
+        sources:
+        - llvm-toolchain-trusty-3.9
+        packages:
+        - clang-3.9
+    env:
+    - COMPILER=clang++-3.9
+    - STD=c++1z
+  - compiler: clang40
+    dist: trusty
+    sudo: false
+    addons:
+      apt:
+        sources:
+        - llvm-toolchain-trusty-4.0
+        packages:
+        - clang-4.0
+    env:
+    - COMPILER=clang++-4.0
+    - STD=c++1z
+  - compiler: clang50
+    dist: trusty
+    sudo: false
+    addons:
+      apt:
+        sources:
+        - llvm-toolchain-trusty-5.0
+        packages:
+        - clang-5.0
+    env:
+    - COMPILER=clang++-5.0
     - STD=c++1z
 script:
 - $COMPILER --version
