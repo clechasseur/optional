@@ -1,15 +1,7 @@
-matrix:
-- image: Visual Studio 2017
-  platform: x86
-  configuration: Debug
-  build:
-    project: vc15.sln
-  test:
-    - bin\vc15\x86\Debug\test.exe
-- image: Visual Studio 2017
-  platform: x86
-  configuration: Release
-  build:
-    project: vc15.sln
-  test:
-    - bin\vc15\x86\Release\test.exe
+image: Visual Studio 2017
+platform: x64
+configuration: Debug
+build:
+  project: vc15.sln
+test_script:
+  - test.exe
