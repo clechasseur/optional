@@ -4,4 +4,4 @@ configuration: Debug
 build:
   project: vc15.sln
 test_script:
-  - .\bin\vc15\x64\Debug\test.exe
+  - ps: .\bin\vc15\$env.PLATFORM\$env.CONFIGURATION\test.exe
