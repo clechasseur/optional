@@ -4,4 +4,5 @@ configuration: Debug
 build:
   project: vc15.sln
 test_script:
-  - ps: .\bin\vc15\$env.PLATFORM\$env.CONFIGURATION\test.exe
+  - ps: $testPath = "bin\vc15\$env:PLATFORM\$env:CONFIGURATION\test.exe"
+  - ps: & $testPath
