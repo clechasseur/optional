@@ -4,5 +4,4 @@ configuration: Debug
 build:
   project: vc15.sln
 test_script:
-  - ps: $testPath = "bin\vc15\$env:PLATFORM\$env:CONFIGURATION\test.exe"
-  - ps: & $testPath
+  - ps: Invoke-Expression ".\bin\vc15\$env:PLATFORM\$env:CONFIGURATION\test.exe"
