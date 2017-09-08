@@ -104,6 +104,13 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>mkdir "$(SolutionDir)out"
+copy /Y "$(TargetPath)" "$(SolutionDir)out\"</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copying output to "out" dir for AppVeyor...</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -120,6 +127,13 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>mkdir "$(SolutionDir)out"
+copy /Y "$(TargetPath)" "$(SolutionDir)out\"</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copying output to "out" dir for AppVeyor...</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -140,6 +154,13 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>mkdir "$(SolutionDir)out"
+copy /Y "$(TargetPath)" "$(SolutionDir)out\"</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copying output to "out" dir for AppVeyor...</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -160,6 +181,13 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>mkdir "$(SolutionDir)out"
+copy /Y "$(TargetPath)" "$(SolutionDir)out\"</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copying output to "out" dir for AppVeyor...</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\cl\optional.h" />

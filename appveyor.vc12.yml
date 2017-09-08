@@ -8,4 +8,4 @@ configuration:
 build:
   project: vc12.sln
 test_script:
-  - ps: Invoke-Expression ".\bin\vc12\$env:PLATFORM\$env:CONFIGURATION\test.exe"
+  - .\out\test.exe
