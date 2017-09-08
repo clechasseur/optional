@@ -56,19 +56,6 @@ matrix:
     env:
     - COMPILER=clang++-3.6
     - STD=c++11
-  - compiler: clang37
-    dist: trusty
-    sudo: false
-    addons:
-      apt:
-        sources:
-        - ubuntu-toolchain-r-test
-        - llvm-toolchain-trusty-3.7
-        packages:
-        - clang-3.7
-    env:
-    - COMPILER=clang++-3.7
-    - STD=c++11
   - compiler: clang38
     dist: trusty
     sudo: false
