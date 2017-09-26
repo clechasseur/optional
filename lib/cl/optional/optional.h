@@ -21,11 +21,11 @@
 #       define CL_OPTIONAL_TEMPLATE_FUNCS_DEFAULT_PARAMS
 #   endif
 #   if _MSC_VER >= 1900 // Visual Studio 2015
-#       define CL_OPTIONAL_NOEXCEPT
 #       define CL_OPTIONAL_NORETURN
 #       define CL_OPTIONAL_MEMBERS_REF_QUALIFIERS
 #   endif
 #   if _MSC_VER >= 1910 // Visual Studio 2017
+#       define CL_OPTIONAL_NOEXCEPT     // Note: in theory this is supported in VC14, but a bug in VC14 update 3 can cause compiler errors
 #       define CL_OPTIONAL_CONSTEXPR
 #   endif
 #elif defined(__clang__)
@@ -171,6 +171,9 @@ public:
 template<typename T>
 class optional
 {
+    static_assert(!std::is_reference<T>::value, "cl::optional does not work with reference types");
+    static_assert(std::is_destructible<T>::value, "cl::optional requires type to be Destructible");
+
 private:
     typename std::aligned_storage<sizeof(T), std::alignment_of<T>::value>::type stg_;   // We store any value here.
     T* const pval_;                                                                     // Pointer to value stored in stg_.
