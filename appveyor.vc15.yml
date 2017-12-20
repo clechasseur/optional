@@ -3,8 +3,18 @@ platform:
   - x64
   - Win32
 configuration:
-  - Debug
-  - Release
+  - Debug C++14 Permissive+
+  - Debug C++14 Permissive-
+  - Debug C++17 Permissive+
+  - Debug C++17 Permissive-
+  - Debug C++Latest Permissive+
+  - Debug C++Latest Permissive-
+  - Release C++14 Permissive+
+  - Release C++14 Permissive-
+  - Release C++17 Permissive+
+  - Release C++17 Permissive-
+  - Release C++Latest Permissive+
+  - Release C++Latest Permissive-
 build:
   project: vc15.sln
 test_script:
